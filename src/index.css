@@ -130,6 +130,7 @@ main {
   color: #414956;
   font-size: 0.8rem;
   font-family: "Quicksand", sans-serif;
+  transition: border-color 0.3s ease;
 }
 
 #new-challenge-images {
