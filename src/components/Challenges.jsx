@@ -41,9 +41,10 @@ export default function Challenges() {
         onSelectType={handleSelectType}
         selectedType={selectedType}
       >
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {displayedChallenges.length > 0 && (
             <motion.ol
+              key="list"
               exit={{ y: -30, opacity: 0 }}
               className="challenge-items"
             >
@@ -59,8 +60,10 @@ export default function Challenges() {
               </AnimatePresence>
             </motion.ol>
           )}
+          {displayedChallenges.length === 0 && (
+            <p key="fallback">No challenges found.</p>
+          )}
         </AnimatePresence>
-        {displayedChallenges.length === 0 && <p>No challenges found.</p>}
       </ChallengeTabs>
     </div>
   );
