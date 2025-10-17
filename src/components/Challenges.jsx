@@ -61,7 +61,14 @@ export default function Challenges() {
             </motion.ol>
           )}
           {displayedChallenges.length === 0 && (
-            <p key="fallback">No challenges found.</p>
+            <motion.p
+              key="fallback"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+            >
+              No challenges found.
+            </motion.p>
           )}
         </AnimatePresence>
       </ChallengeTabs>
