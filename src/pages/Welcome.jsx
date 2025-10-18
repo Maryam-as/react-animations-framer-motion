@@ -12,6 +12,8 @@ export default function WelcomePage() {
     [0, 200, 300, 500],
     [1, 0.5, 0.5, 0]
   );
+  const yHero = useTransform(scrollY, [0, 200], [0, -180]);
+  const opacityHero = useTransform(scrollY, [0, 300, 500], [1, 1, 0]);
   return (
     <>
       <header id="welcome-header">
@@ -28,6 +30,7 @@ export default function WelcomePage() {
           id="city-image"
         />
         <motion.img
+          style={{ opacity: opacityHero, y: yHero }}
           src={heroImg}
           alt="A superhero wearing a cape"
           id="hero-image"
