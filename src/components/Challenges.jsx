@@ -50,7 +50,7 @@ export default function Challenges() {
               exit={{ y: -30, opacity: 0 }}
               className="challenge-items"
             >
-              <AnimatePresence>
+              <AnimatePresence mode="wait">
                 {displayedChallenges.map((challenge) => (
                   <ChallengeItem
                     key={challenge.id}
