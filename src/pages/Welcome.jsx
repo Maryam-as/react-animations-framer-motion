@@ -14,10 +14,15 @@ export default function WelcomePage() {
   );
   const yHero = useTransform(scrollY, [0, 200], [0, -180]);
   const opacityHero = useTransform(scrollY, [0, 300, 500], [1, 1, 0]);
+  const yText = useTransform(scrollY, [0, 200, 300, 500], [0, 50, 50, 300]);
+  const scaleText = useTransform(scrollY, [0, 300], [1, 1.5]);
   return (
     <>
       <header id="welcome-header">
-        <motion.div id="welcome-header-content">
+        <motion.div
+          style={{ scale: scaleText, y: yText }}
+          id="welcome-header-content"
+        >
           <h1>Ready for a challenge?</h1>
           <Link id="cta-link" to="/challenges">
             Get Started
