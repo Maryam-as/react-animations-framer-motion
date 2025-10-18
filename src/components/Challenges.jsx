@@ -51,9 +51,10 @@ export default function Challenges() {
               className="challenge-items"
             >
               <AnimatePresence mode="wait">
-                {displayedChallenges.map((challenge) => (
+                {displayedChallenges.map((challenge, i) => (
                   <ChallengeItem
                     key={challenge.id}
+                    index={i}
                     challenge={challenge}
                     onViewDetails={() => handleViewDetails(challenge.id)}
                     isExpanded={expanded === challenge.id}

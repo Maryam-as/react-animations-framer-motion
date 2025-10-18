@@ -7,6 +7,7 @@ export default function ChallengeItem({
   challenge,
   onViewDetails,
   isExpanded,
+  index,
 }) {
   const { updateChallengeStatus } = useContext(ChallengesContext);
 
@@ -28,7 +29,23 @@ export default function ChallengeItem({
   }
 
   return (
-    <motion.li layout exit={{ y: -30, opacity: 0 }}>
+    <motion.li
+      layout
+      initial={{ y: -30, opacity: 0, scale: 0.95 }}
+      animate={{
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        transition: {
+          type: "spring",
+          stiffness: 400, // controls how snappy the spring is
+          damping: 25, // controls how much it bounces
+          mass: 1, // weight of the item
+          delay: index * 0.1,
+        },
+      }}
+      exit={{ y: -30, opacity: 0, transition: { duration: 0.2 } }}
+    >
       <article className="challenge-item">
         <header>
           <img {...challenge.image} />
