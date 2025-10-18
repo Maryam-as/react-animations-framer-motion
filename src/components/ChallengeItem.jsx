@@ -48,7 +48,7 @@ export default function ChallengeItem({
     >
       <article className="challenge-item">
         <header>
-          <img {...challenge.image} />
+          <img src={challenge.image.src} alt={challenge.image.alt} />
           <div className="challenge-item-meta">
             <h2>{challenge.title}</h2>
             <p>Complete until {formattedDate}</p>
